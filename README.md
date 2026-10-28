@@ -1,12 +1,14 @@
 # CNN Image Classification: Cats vs Dogs
 
-A beginner-friendly convolutional neural network (CNN) built with TensorFlow/Keras to classify images as cats or dogs.
+A beginner-friendly convolutional neural network (CNN) built with TensorFlow/Keras to classify images as cats or dogs. Includes a graphical interface for training the model, viewing training logs, selecting an image, and running a prediction.
 
 ## Features
-- Downloads the Cats vs Dogs dataset automatically on the first training run
-- Trains a CNN from scratch
+- **GUI with two tabs:** train the CNN and predict a new image
+- Configure training epochs and batch size
+- Live training output in the interface and stop-training control
+- Choose an image and preview it before prediction
+- Displays the predicted class and model confidence
 - Saves the trained model and training-history chart
-- Predicts a new image and prints a confidence score
 
 ## Requirements
 - Python 3.10 or 3.11 recommended
@@ -21,18 +23,25 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-## Train the CNN
+## Launch the graphical interface
+```powershell
+python gui.py
+```
+1. Open the **Train model** tab and choose the epoch count and batch size.
+2. Click **Start training**. The first run downloads the Cats vs Dogs dataset.
+3. Wait for training to finish; the model is saved to `models/cats_dogs_cnn.keras`.
+4. Open the **Predict image** tab and choose a cat or dog image.
+5. Click **Predict** to see the class and confidence estimate.
+
+## Command-line alternatives
+Train:
 ```powershell
 python train.py --epochs 5
 ```
-The first run downloads the dataset. Start with 5 epochs to check that everything works. Training time depends on hardware.
-
-## Predict an image
-After training, use a local cat or dog image:
+Predict:
 ```powershell
 python predict.py --image path\to\cat_or_dog.jpg
 ```
-The trained model is saved at `models/cats_dogs_cnn.keras`.
 
 ## Output files
 - `models/cats_dogs_cnn.keras` — trained model
@@ -42,18 +51,18 @@ Generated model files and outputs are excluded from Git by default. Upload scree
 
 ## Screenshot checklist
 Capture actual runs using `Win + Shift + S`:
-1. `screenshots/01_dataset.png` — dataset loading in the terminal.
-2. `screenshots/02_training.png` — training epochs and metrics.
-3. `screenshots/03_graph.png` — training-history chart.
-4. `screenshots/04_prediction.png` — prediction for a test image.
+1. `screenshots/01_gui_training.png` — training tab showing logs.
+2. `screenshots/02_training_graph.png` — training-history chart.
+3. `screenshots/03_gui_prediction.png` — image and prediction result.
+4. `screenshots/04_terminal_or_result.png` — successful completion details.
 
 ## Important
-Do not claim a particular accuracy until you have measured it on your own validation/test set. Results vary with dataset, initialization, and training settings.
+Do not claim a particular accuracy until you have measured it on your own validation/test set. Results vary with dataset, initialization, and training settings. Model confidence is not a guarantee of correctness.
 
 ## Resume description
-**CNN Image Classification | Python, TensorFlow, Keras**
-- Built and trained a CNN to classify cat and dog images.
-- Implemented image loading, normalization, validation evaluation, model saving, and single-image inference.
+**CNN Image Classification | Python, TensorFlow, Keras, Tkinter**
+- Built a GUI application to train a CNN and classify cat/dog images.
+- Added configurable training, live log display, image preview, model inference, and confidence output.
 - Visualized training and validation metrics to inspect model performance.
 
 ## References
